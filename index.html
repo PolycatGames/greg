@@ -20,6 +20,15 @@
             transition: transform 10s;
         }
     </style>
+    <script>console.log("what the fuck")</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RV2FJJVRJ0"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-RV2FJJVRJ0');
+    </script>
 </head>
 
 <body>
@@ -28,7 +37,7 @@
         alt="">
     <button onclick="toggleImage()">Hello world!</button>
 
-    <audio id="myAudio" src="holdup.mp3" preload="auto"></audio>
+    <audio id="myAudio" src="holdup.mp3" preload="auto" loop></audio>
 
     <script>
         function toggleImage() {
