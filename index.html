@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Greg The Gorilla</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        button {
+            width: 100px;
+            margin-bottom: 20px;
+        }
+
+        img {
+            transform: scale(0);
+            transition: transform 10s;
+        }
+    </style>
+</head>
+
+<body>
+    <img id="img"
+        src="https://64.media.tumblr.com/62c0250060e0910d8794c0815021d8b8/2bd3ffbfb8f4fe87-8e/s1280x1920/bc6e7994aa55d39a037246a6614f7b2a475bf1fb.gifv"
+        alt="">
+    <button onclick="toggleImage()">Hello world!</button>
+
+    <audio id="myAudio" src="holdup.mp3" preload="auto"></audio>
+
+    <script>
+        function toggleImage() {
+            var img = document.getElementById('img');
+            var audio = document.getElementById('myAudio');
+
+            img.style.transform = 'scale(1)';
+
+            if (audio.paused || audio.ended) {
+                audio.play();
+            } else {
+                audio.pause();
+            }
+        }
+    </script>
+</body>
+
+</html>
