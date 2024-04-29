@@ -1,23 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <link rel="icon" type="image/png" href="gregthegorilla.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Greg The Gorilla</title>
     <style>
+        html,
         body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        main {
             display: flex;
             flex-direction: column;
             align-items: center;
-        }
-
-        button {
-            width: 100px;
-            margin-bottom: 20px;
+            width: 90%;
+            max-width: 800px;
         }
 
         img {
+            max-width: 100%;
+            height: auto;
+            max-height: 50vh;
             transform: scale(0);
             transition: transform 10s;
+        }
+
+        button {
+            font-size: 14px;
+            padding: 8px 14px;
+            margin-top: 20px;
         }
     </style>
     <script>console.log("what the fuck")</script>
@@ -32,25 +52,26 @@
 </head>
 
 <body>
-    <img id="img"
-        src="https://64.media.tumblr.com/62c0250060e0910d8794c0815021d8b8/2bd3ffbfb8f4fe87-8e/s1280x1920/bc6e7994aa55d39a037246a6614f7b2a475bf1fb.gifv"
-        alt="">
-    <button onclick="toggleImage()">Hello world!</button>
-
+    <main>
+        <img id="img" src="gregthegorilla.gif" alt="">
+        <button onclick="toggleImage()">Hello world!</button>
+    </main>
     <audio id="myAudio" src="holdup.mp3" preload="auto" loop></audio>
-
     <script>
         function toggleImage() {
             var img = document.getElementById('img');
             var audio = document.getElementById('myAudio');
 
-            img.style.transform = 'scale(1)';
+            img.style.transition = 'none';
+            img.style.transform = 'scale(0)';
 
-            if (audio.paused || audio.ended) {
-                audio.play();
-            } else {
-                audio.pause();
-            }
+            setTimeout(function () {
+                img.style.transition = 'transform 10s';
+                img.style.transform = 'scale(1)';
+            }, 20);
+
+            audio.currentTime = 0;
+            audio.play();
         }
     </script>
 </body>
